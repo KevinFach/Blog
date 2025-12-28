@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('commets', function (Blueprint $table) {
             $table->id();
+
+            $table->text('body');
+
+            $table->foreignId('posts_id')
+                  ->constrained()
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
